@@ -1,5 +1,6 @@
 from lxml import html
 import requests
+import pymysql
 
 link = input('\n')
 urlempik = link
@@ -17,10 +18,13 @@ price = tree.xpath(pricepath)
 title = ''.join(title)
 price = ''.join(price)
 
-print ("Tytul: " + title + "\nCena: " + price)
+connect = pymysql.connect(host='localhost', user='root', password='', db='empik')
+cur = connect.cursor()
 
-file = open ('C:\\Users\\Mistrz\\Desktop\\book.txt', 'w')
-
-file.write("Tytuł: " + title + "\n Cena: " + price)
-
-file.close()
+try:
+    id = 1
+    cur.execute("INSERT INTO books (id, title, price) VALUES (%s, %s, %s)",
+                (id, title, price))
+    connect.commit()
+except:
+    print("fail")
