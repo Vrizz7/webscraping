@@ -18,7 +18,7 @@ price = tree.xpath(pricepath)
 title = ''.join(title)
 price = ''.join(price)
 
-print ("Tytul: " + title + "\n Cena: " + price)
+print ("Tytul: " + title + "\nCena: " + price)
 
 file = open ('C:\\Users\\Mistrz\\Desktop\\book.txt', 'w')
 
