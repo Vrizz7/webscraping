@@ -1,6 +1,5 @@
 from lxml import html
 import requests
-import msvcrt
 
 link = input('\n')
 urlempik = link
